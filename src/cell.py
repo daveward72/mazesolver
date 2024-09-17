@@ -40,3 +40,16 @@ class Cell:
         if self.has_bottom_wall:
             bottom_wall_line = Line(bottom_left, bottom_right)
             self._win.draw_line(bottom_wall_line, 'blue')
+
+    def draw_move(self, to_cell, undo=False):
+        center_self_x = (self._x1 + self._x2) // 2
+        center_self_y = (self._y1 + self._y2) // 2
+        center_self_point = Point(center_self_x, center_self_y)
+
+        center_to_x = (to_cell._x1 + to_cell._x2) // 2
+        center_to_y = (to_cell._y1 + to_cell._y2) // 2
+        center_to_point = Point(center_to_x, center_to_y)
+
+        color = "red" if undo else "gray"
+        line = Line(center_self_point, center_to_point)
+        self._win.draw_line(line, color)

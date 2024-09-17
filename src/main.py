@@ -12,6 +12,8 @@ def main():
     cell2.has_top_wall = False
     cell2.draw(300, 300, 400, 400)
 
+    cell1.draw_move(cell2, True)
+
     win.wait_for_close()
 
 main()
